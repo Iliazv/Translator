@@ -1,0 +1,569 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+    font-weight: 600;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    vertical-align: top;
+}
+
+button, input {
+    border: 0px;
+}
+
+html,
+body {
+    font-family: 'Tenor Sans', sans-serif;
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 600;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}/* Reset styles */
+
+body {
+    background-color: #f5f5f5;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;  
+}
+
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.header__logotype {
+    width: 50px;
+    height: 50px;
+}
+
+.header__name {
+    color: #551A8B;
+    vertical-align: -18px;
+    padding: 9px 0 12px 7px;
+    font-size: 21px;
+}
+
+.header__title {
+    color: grey;
+    padding: 8px 0 0 0;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.header__list {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    border: 1px solid rgba(195, 195, 195, 0.8);
+}
+
+.header__list li {
+    margin: 0 30px 0 0;
+    list-style-type: none;
+}
+
+.header__link {
+    color: #006594;
+    text-decoration-line: none;
+}
+
+.translate {
+    padding: 35px 0 0 0;
+}
+
+.about {
+    padding: 35px 0 0 0;
+}
+
+.translate__frame {
+    display: flex;
+    border-radius: 10px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.15);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.15);
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.15);
+}
+
+.translate__input {
+    position: relative;
+    background-color: #fff;
+    border-radius: 15px;
+    
+}
+
+.translate__output {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 15px;
+    
+}
+
+.translate__language {
+    width: 625px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(255, 255, 255);
+}
+
+.translate__language_1 {
+    border-radius: 10px 0 0 0;
+    border-bottom: 1px solid rgba(195, 195, 195, 0.4);
+    border-top: 1px solid rgba(195, 195, 195, 0.4);
+    border-left: 1px solid rgba(195, 195, 195, 0.4);
+}
+
+.translate__language_2 {
+    border-radius: 0 10px 0 0;
+    border-bottom: 1px solid rgba(195, 195, 195, 0.4);
+    border-top: 1px solid rgba(195, 195, 195, 0.4);
+    border-right: 1px solid rgba(195, 195, 195, 0.4);
+} 
+
+.link {
+    font-size: 17px;
+    height: 48px;
+    background-color: #fff;
+    border-radius: 10px 0 0 0;
+    padding: 5px 18px;
+    color: #3C4043;
+    z-index: 5;
+}
+
+.link_position {
+    margin: 0 0 0 24px;
+    border-radius: 0 0 0 0;
+}
+
+.link:hover {
+    background-color: #f5f5f5;
+    color: #006594;
+}
+
+.translate__choice_2 {
+    margin: 0 0 0 25px;
+    border-radius: 0 0 0 0;
+}
+
+
+
+.translate__language__angle1 {
+    border-radius: 0 10px 0 0;
+}
+
+.translate__window {
+    font-size: 24px;
+    font-family: Arial;
+    font-weight: 100;
+    width: 625px;
+    height: 450px;
+    cursor: default;
+    color: #3C4043;
+    padding: 23px 20px 20px 20px;
+    border-bottom: 2px solid #fff;
+    border-top: 2px solid #fff;
+}
+
+.translate__window_write {
+    cursor: auto;
+    resize: none;
+    border-right: 1px solid rgba(195, 195, 195, 0.25);
+    border-bottom: 1px solid rgba(195, 195, 195, 0.25);
+    border-left: 2px solid rgba(195, 195, 195, 0.25);
+    border-radius: 0 0 0 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.translate__window_read {
+    border-right: 1px solid rgba(195, 195, 195, 0.5);
+    cursor: auto;
+    resize: none;
+    border-right: 1px solid rgba(195, 195, 195, 0.5);
+    border-bottom: 1px solid rgba(195, 195, 195, 0.5);
+    border-radius: 0 0 10px 0;
+} 
+
+.translate__window_write:focus {
+    border: 2px solid #006594;
+}
+
+.translate__window_write:focus + .header__circle {
+    border-color: #006594;
+}
+
+.header__translate.focused {
+    border: 2px solid rgb(225, 2, 2);
+}
+
+
+.options {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0 0 0;
+}
+
+.options__block {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__icon {
+    outline: 1px solid rgba(195, 195, 195, 0.5);
+    border-radius: 50%;
+    padding: 18px;
+    width: 70px;
+    height: 70px;
+    filter: invert(0.5);
+}
+
+.header__switch {
+    position: absolute;
+    left: 98%;
+    top: -35px;
+    width: 24px;
+    height: 24px;
+    filter: invert(0);
+    z-index: 2;
+    background-color: #fff;
+}
+
+.header__img {
+    width: 24px;
+    height: 24px;
+    filter: invert(0.5);
+}
+
+.header__change {
+    position: absolute;
+    left: 98%;
+    top: -35px;
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+.header__circle {
+    position: absolute;
+    top: 40%;
+    right: -24px;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+.translate__textarea {
+    position: relative;
+}
+
+.header__arrow {
+    transform: rotate(0deg);
+    margin: 3px 0 0 5px;
+    padding: 0px 0 0 2px;
+    width: 17px;
+    height: 17px;
+}
+
+.dropdown.active > .link, link:hover {
+    color: #006594;
+}
+  
+.dropdown {
+    position: relative;
+}
+  
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    top: calc(100% + .0rem);
+    background-color: #fff;
+    border-radius: 0 0 .25rem .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    z-index: -1;
+}
+  
+.dropdown.active > .link + .dropdown-menu {
+    opacity: 1;
+    z-index: 1;
+    transform: translateY(0);
+}
+
+.dropdown.active > .link > .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-icon {
+    width: 15px;
+    height: 15px;
+    margin: 4px 0 0 8px;
+    padding: 1px 2px 0 0;
+    pointer-events: none;
+}
+
+.dropdown__button {
+    text-align: left;
+    background-color: white;
+    line-height: 30px;
+    font-size: 15px;
+    width: 100%;
+    padding: 10px 14px;
+}
+
+.dropdown__button:hover {
+    background-color: #ffeecc;
+}
+
+.header__translate {
+    position: absolute;
+    top: 20%;
+    left: -2%;
+    width: 49px;
+    height: 49px;
+    filter: invert(0.5);
+    z-index: 3;
+    margin: -10px 0 0 0;
+    border: 0px solid #fff;
+    padding: 8px 5px 8px 7px;
+    border-radius: 50%;
+}
+
+.header__submit {
+    background-color: #fff;
+}
+
+.about__title {
+    font-size: 28px;
+    padding: 0 0 25px 0;
+}
+
+.about__paragraph {
+    font-size: 19px;
+    font-weight: 100;
+    padding: 10px 0;
+    line-height: 23px;
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type = 'text/css' href="{% static 'vega/main_style.css' %}">
+    <script type="text/javascript" src="{% static 'vega/changer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vega/extract.js' %}"></script>
+    <script src="jquery-1.6.1.js"></script>
+    <script src="my_jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Zilla+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Vega</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="container">
+                <div class="header">
+                    <ul class="header__list">
+                        <li class="header__link"><a href="{% url 'main_frame' %}" class="header__link"><img src="{% static '../static/vega/images/logo.png' %}" alt="" class="header__logotype"><span class="header__name">Vega</span></a></li>
+                        <li><a href="{% url 'main_frame' %}" class="header__link">Текст</a></li>
+                        <li><a href="{% url 'documents' %}" class="header__link">Документы</a></li>
+                        <li><a href="{% url 'about' %}" class="header__link">О нас</a></li>
+                    </ul>
+                </div>
+                <div class="translate">
+                    <div class="translate__frame">
+                        <div class="translate__input">
+                           
+                            <div class="translate__language translate__language_1">
+                                <div class="dropdown" data-dropdown>
+                                    {% if arg1 == 'none' %}
+                                        <button class="link"  data-dropdown-button>Определить язык<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                    {% else %}
+                                        <button class="link"  data-dropdown-button>{{arg1}}<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                    {% endif %}
+                                    <div class="dropdown-menu">
+                                        <script>
+                                            var data = document.getElementById('window').value
+                                            variable = "{{val}}";
+                                        </script>
+                                        <form action="{% url 'main_frame' arg1='Русский' arg2=arg2 signal1=1 signal2=0 %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="dropdown__button">Русский</button>
+                                        </form>
+                                        <form action="{% url 'main_frame' arg1='Английский' arg2=arg2 signal1=1 signal2=0 %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="dropdown__button">Английский</button>
+                                        </form>
+                                        <form action="{% url 'main_frame' arg1='Немецкий' arg2=arg2 signal1=1 signal2=0 %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="dropdown__button">Немецкий</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="translate__textarea translate__language__angel1">
+                                <form action="{% url 'translate' arg1=arg1 arg2=arg2 %}" method="post">
+                                    {% csrf_token %}
+                                    <span class="border"><textarea type="text" id = 'window' name="input_text" class="translate__window translate__window_write">{{translation_text}}</textarea></span>
+                                   
+                                    <div class="header__circle">
+                                        <button class="header__submit"><img src="{% static '../static/vega/images/right_arrow.png' %}" alt="" class="header__translate"></button>
+                                    </div>
+                                   
+                                </form>
+                                <form action="{% url 'switch' arg1=arg1 arg2=arg2 %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="header__switch"><img src="{% static '../static/vega/images/arrows.png' %}" alt="" class="header__img"></button>
+                                </form>    
+                            </div>
+                        </div>
+                        <div class="translate__output">
+                            <div class="translate__language translate__language_2">            
+                                <div class="dropdown" data-dropdown>  
+                                    {% if arg2 == 'none' %}            
+                                        <button class="link link_position"  data-dropdown-button>Определить язык<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                    {% else %}
+                                        <button class="link link_position"  data-dropdown-button>{{arg2}}<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                    {% endif %}
+                                    <div class="dropdown-menu">
+                                        <form action="{% url 'main_frame' arg1=arg1 arg2='Русский' signal1=0 signal2=1 %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="dropdown__button">Русский</button>
+                                        </form>
+                                        <form action="{% url 'main_frame' arg1=arg1 arg2='Английский' signal1=0 signal2=1 %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="dropdown__button">Английский</button>
+                                        </form>
+                                        <form action="{% url 'main_frame' arg1=arg1 arg2='Немецкий' signal1=0 signal2=1  %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="dropdown__button">Немецкий</button>
+                                        </form>
+                                    </div>
+                                </div>  
+                                 
+                            </div>
+                            <div class="translate__textarea">
+                                <input type="text" class="translate__window translate__window_read" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="options">
+                    <div class="options__block">
+                        <div class="history"><img src="{% static '../static/vega/images/history.png' %}" alt="" class="header__icon"><div class="header__title">История</div></div>
+                        <div class="save"><img src="{% static '../static/vega/images/star.png' %}" alt="" class="header__icon"><div class="header__title">Избранное</div></div>
+                        <div class="feedback"><img src="{% static '../static/vega/images/faq.png' %}" alt="" class="header__icon"><div class="header__title">Поддержка</div></div>
+                        <!--<h1 id="app">{{ text }}</h1>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var socket = new WebSocket('ws://localhost:8000/ws/some_url/')
+   
+        socket.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            console.log(data);
+            document.querySelector('#app').innerText = data.message;
+        }
+    </script>
+</body>
+</html>
+
+
