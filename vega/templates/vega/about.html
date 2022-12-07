@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'vega/images/vega_favicon.ico' %}" />
+    <link rel="stylesheet" type = 'text/css' href="{% static 'vega/main_style.css' %}">
+    <script type="text/javascript" src="{% static 'vega/changer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vega/extract.js' %}"></script>
+    <script src="jquery-1.6.1.js"></script>
+    <script src="my_jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Zilla+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Vega</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            
+                <div class="header">
+                    <ul class="header__list">
+                        <li class="header__link"><a href="{% url 'main_frame' %}" class="header__link"><img src="{% static '../static/vega/images/logo.png' %}" alt="" class="header__logotype"><span class="header__name">Vega</span></a></li>
+                        <li><a href="{% url 'main_frame' %}" class="header__link">Текст</a></li>
+                        <li><a href="{% url 'documents' %}" class="header__link">Документы</a></li>
+                        <li><a href="{% url 'about' %}" class="header__link">О нас</a></li>
+                    </ul>
+                </div>
+            <div class="container">
+            <div class="page">
+                <div class="about">
+                    <div class="about__title">
+                        Откройте возможности нейронного машинного перевода PROMT
+                    </div>
+                    <div class="about__info">
+                        <p class="about__paragraph">PROMT.One - это облачное приложение – бесплатный онлайн-переводчик для перевода с языка на язык на основе нейронных сетей (Neural Machine Translation), словарь с транскрипцией, разговорники и многое другое. Наслаждайтесь правильным и точным переводом на английский, немецкий и еще 20+ языков.</p>
+                        <p class="about__paragraph">Смотрите перевод слов и устойчивых выражений, транскрипцию и произношение в онлайн cловаре. Словари PROMT для английского, немецкого, французского, русского, испанского, итальянского и португальского языков включают миллионы слов и словосочетаний, самую современную разговорную лексику, которая постоянно отслеживается и пополняется нашими лингвистами.</p>
+                        <p class="about__paragraph">Изучайте формы английских глаголов, немецких глаголов, испанских глаголов, французских глаголов, португальских глаголов, итальянских глаголов, русских глаголов и падежные формы существительных и прилагательных в разделе Спряжение и склонение.</p>
+                        <p class="about__paragraph">Учите употребление слов и выражений в разных Контекстах. Миллионы реальных примеров  на английском, немецком, испанском, французском помогут вам в изучении иностранных языков и подготовке домашних заданий.</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="{% url 'main_frame' %}" class='footer__link'>© ООО "Vega", 2017 - 2022</a>
+        </div>
+    </div>
+
+    <script>
+        var socket = new WebSocket('ws://localhost:8000/ws/some_url/')
+    
+        socket.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            console.log(data);
+            document.querySelector('#app').innerText = data.message;
+        }
+
+    </script>
+
+</body>
+
+</html>

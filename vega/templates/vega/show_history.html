@@ -1,0 +1,239 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'vega/images/vega_favicon.ico' %}" />
+    <link rel="stylesheet" type = 'text/css' href="{% static 'vega/main_style.css' %}">
+    <script type="text/javascript" src="{% static 'vega/changer.js' %}"></script>
+    <script type="text/javascript" src="{% static 'vega/extract.js' %}" defer></script>
+    <script type="text/javascript" src="{% static 'vega/sidebar.js' %}" defer></script>
+    <script src="jquery-1.6.1.js"></script>
+    <script src="my_jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Zilla+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Vega</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            
+                <div class="header">
+                    <ul class="header__list">
+                        <li class="header__link"><a href="{% url 'main_frame' %}" class="header__link"><img src="{% static '../static/vega/images/logo.png' %}" alt="" class="header__logotype"><span class="header__name">Vega</span></a></li>
+                        <li><a href="{% url 'main_frame' %}" class="header__link">Текст</a></li>
+                        <li><a href="{% url 'documents' %}" class="header__link">Документы</a></li>
+                        <li><a href="{% url 'about' %}" class="header__link">О нас</a></li>
+                    </ul>
+                </div>
+            <div class="container">
+            <div class="page">    
+                <div class="translate">
+                            <div class="translate__frame">
+                                <div class="translate__input">
+                                    
+                                    <div class="translate__language translate__language_1">
+                                        <div class="dropdown" data-dropdown>
+                                            {% if arg1 == 'none' %}
+                                                <button class="link"  data-dropdown-button>Определить язык<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                            {% else %}
+                                                <button class="link"  data-dropdown-button>{{arg1}}<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                            {% endif %}
+                                            <div class="dropdown-menu">
+                                                <script>
+                                                    var data = document.getElementById('window').value
+                                                    variable = "{{val}}";
+                                                </script>
+                                                <form action="{% url 'main_frame' arg1='Русский' arg2=arg2 signal1=1 signal2=0 %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown__button">Русский</button>
+                                                </form>
+                                                <form action="{% url 'main_frame' arg1='Английский' arg2=arg2 signal1=1 signal2=0 %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown__button">Английский</button>
+                                                </form>
+                                                <form action="{% url 'main_frame' arg1='Немецкий' arg2=arg2 signal1=1 signal2=0 %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown__button">Немецкий</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="translate__textarea translate__language__angel1">
+                                        <form action="{% url 'translate' arg1=arg1 arg2=arg2 %}" method="post">
+                                            {% csrf_token %}
+                                            <textarea type="text" id = 'window' name="input_text" class="translate__window translate__window_write">{{input}}</textarea>
+                                            
+                                            <div class="header__circle">
+                                                <button class="header__submit"><img src="{% static '../static/vega/images/right_arrow.png' %}" alt="" class="header__translate"></button>
+                                            </div> 
+                                            
+                                        </form>
+                                        <form action="{% url 'switch_text' arg1=arg1 arg2=arg2 %}" method="post">
+                                            {% csrf_token %}
+                                            <button class="header__switch"><img src="{% static '../static/vega/images/arrows.png' %}" alt="" class="header__img"></button>
+                                        </form>    
+                                    </div>
+                                </div>
+                                <div class="translate__output">
+                                    <div class="translate__language translate__language_2">            
+                                        <div class="dropdown" data-dropdown>  
+                                            {% if arg2 == 'none' %}            
+                                                <button class="link link_position"  data-dropdown-button>Определить язык<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                            {% else %}
+                                                <button class="link link_position"  data-dropdown-button>{{arg2}}<img src="{% static '../static/vega/images/down-arrow.png' %}" alt="" class="dropdown-icon"></button>
+                                            {% endif %}
+                                            <div class="dropdown-menu">
+                                                <form action="{% url 'main_frame' arg1=arg1 arg2='Русский' signal1=0 signal2=1 %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown__button">Русский</button>
+                                                </form>
+                                                <form action="{% url 'main_frame' arg1=arg1 arg2='Английский' signal1=0 signal2=1 %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown__button">Английский</button>
+                                                </form>
+                                                <form action="{% url 'main_frame' arg1=arg1 arg2='Немецкий' signal1=0 signal2=1  %}" method="post">
+                                                    {% csrf_token %}
+                                                    <button class="dropdown__button">Немецкий</button>
+                                                </form>
+                                            </div>
+                                        </div>   
+                                        
+                                    </div>
+                                    <div class="translate__textarea">
+                                        <textarea type="text" class="translate__window translate__window_read" readonly>{{output}}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+                <div class="options">
+                        <div class="options__block">
+                            <button type="submit" onclick="openSidebar()" class="options__button"><div class="feedback"><img src="{% static '../static/vega/images/history.png' %}" alt="" class="header__icon"><div class="header__title">История</div></div></button>
+                            <button type="submit" onclick="openSide()" class="options__button"><div class="save"><img src="{% static '../static/vega/images/star.png' %}" alt="" class="header__icon"><div class="header__title">Избранное</div></div></button>
+                            <button type="submit" onclick="openModal()" class="options__button"><div class="feedback"><img src="{% static '../static/vega/images/faq.png' %}" alt="" class="header__icon"><div class="header__title">Поддержка</div></div></button>
+                            <div class="modal" id="modal">
+                                <form action="{% url 'send_report' %}" method="post">
+                                {% csrf_token %}
+                                <div class="modal-title">Написать тех. поддержке</div>
+                                <div class="modal-field">
+                                    <textarea class="modal-input" name="modal_input" placeholder="Напишите отзыв"></textarea>
+                                </div>
+                                <div class="modal-info">
+                                    Некоторая информация об аккаунте и системе может быть отправлена в Google. Это помогает 
+                                    нам устранять неполадки и улучшать наши сервисы. Ваши данные будут обрабатываться в 
+                                    соответствии с Политикой конфиденциальности и Условиями использования.
+                                </div>
+                                <div class="modal-submit">
+                                    <button class="modal-send-button">Отправить</button>
+                                </div>
+                                </form>
+                                <button class='modal-button' onclick="closeModal()">&times;</button>
+
+                            </div>
+                            <div id="overlay"></div>
+                        </div>
+                </div>
+
+                <div class="sidebar" id="sidebar">
+                    <div class="sidebar__title">
+                        История
+                    </div>
+                    <div class="sidebar__close" onclick="closeSidebar()">&times;</div>
+                    <div class="sidebar__clear">
+                        <form action="{% url 'clear_history' arg1=arg1 arg2=arg2 %}">
+                            <button class="sidebar__button">Очистить историю</button>
+                        </form>
+                    </div>
+                    <div class="sidebar__overflow">
+                        {% for object in objects %}
+                        <form action="{% url 'show' arg1=object.from_language arg2=object.to_language input=object.text output=object.translate %}" method="post">
+                            {% csrf_token %}
+                            <div class="sidebar__window">
+                                <a class="sidebar__selected" href="{% url 'add_favorite' arg1=arg1 arg2=arg2 input=object.text output=object.translate %}"><img src="{% static '../static/vega/images/star-default.png' %}" alt="" class="sidebar__star"></a>
+                                <button class="sidebar__card">
+
+                                <div class="sidebar__object">
+                                <div class="sidebar__language">
+                                    {{object.from_language}} → {{object.to_language}}
+                                </div>
+                                <div class="sidebar__translate">
+                                    {{object.text}}
+                                    <p class="sidebar__highlight">{{object.translate}}
+                                </div>
+                            </div></button>
+                        </div>
+                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="sidebar" id="side">
+                    <div class="sidebar__title">
+                        Избранное
+                    </div>
+                    <div class="sidebar__close" onclick="closeSide()">&times;</div>
+                    <div class="sidebar__clear">
+                        <form action="{% url 'clear_selected' arg1=arg1 arg2=arg2 %}">
+                            <button class="sidebar__button">Очистить избранное</button>
+                        </form>
+                    </div>
+                    <div class="sidebar__overflow">
+                        {% for select in selected %}
+                        <form action="{% url 'show' arg1=select.from_language arg2=select.to_language input=select.text output=select.translate %}" method="post">
+                            {% csrf_token %}
+                            <div class="sidebar__window">
+                                <a class="sidebar__selected" href="{% url 'remove_favorite' arg1=arg1 arg2=arg2 input=select.text output=select.translate id=select.id %}"><img src="{% static '../static/vega/images/pl.png' %}" alt="" class="sidebar__star"></a>
+                            <button class="sidebar__card">
+                            
+                            <div class="sidebar__object">
+                                
+                                <div class="sidebar__language">
+                                    {{select.from_language}} → {{select.to_language}} 
+                                </div>
+                                <div class="sidebar__translate">
+                                    {{select.text}}
+                                    <p class="sidebar__highlight">{{select.translate}}
+                                </div>
+                            </div></button>
+                        </div>
+                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+            </div>
+            </div>
+            <div class="footer">
+                <a href="{% url 'main_frame' %}" class='footer__link'>© ООО "Vega", 2017 - 2022</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var socket = new WebSocket('ws://localhost:8000/ws/some_url/')
+    
+        socket.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            console.log(data);
+            document.querySelector('#app').innerText = data.message;
+        }
+
+    </script>
+
+</body>
+
+</html>
